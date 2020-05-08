@@ -1,8 +1,23 @@
 def intersection(arrays):
-
+    cache = {}
     """
     YOUR CODE HERE
     """
+    shortest = None
+    result = []
+    for arr in arrays: # might need index access
+
+        if shortest == None or len(arr) < len(shortest):
+            shortest = arr
+
+        for i in arr:
+            if i in cache:
+                cache[i] += 1
+            else:
+                cache[i] = 1
+
+            if cache[i] == len(arrays):
+                result.append(i)
 
     return result
 
